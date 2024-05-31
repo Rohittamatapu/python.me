@@ -1,0 +1,87 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN3GhQxb9UgpPnOVhwntjVm",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Rohittamatapu/python.me/blob/main/inserting%20linked%20list%20at%20end\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vwoy2HK2Gdsq",
+        "outputId": "8f2caf87-63f9-4c16-e6bc-de8278f6caf2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 -> 2 -> 3 -> 4 -> None\n"
+          ]
+        }
+      ],
+      "source": [
+        "class Node:\n",
+        "    def __init__(self, data):\n",
+        "        self.data = data\n",
+        "        self.next = None\n",
+        "\n",
+        "class LinkedList:\n",
+        "    def __init__(self):\n",
+        "        self.head = None\n",
+        "\n",
+        "    def insert_at_end(self, data):\n",
+        "        new_node = Node(data)\n",
+        "        if self.head is None:\n",
+        "            self.head = new_node\n",
+        "            return\n",
+        "        last = self.head\n",
+        "        while last.next:\n",
+        "            last = last.next\n",
+        "        last.next = new_node\n",
+        "\n",
+        "    def print_list(self):\n",
+        "        current = self.head\n",
+        "        while current:\n",
+        "            print(current.data, end=\" -> \")\n",
+        "            current = current.next\n",
+        "        print(\"None\")\n",
+        "\n",
+        "\n",
+        "llist = LinkedList()\n",
+        "\n",
+        "llist.insert_at_end(1)\n",
+        "llist.insert_at_end(2)\n",
+        "llist.insert_at_end(3)\n",
+        "llist.insert_at_end(4)\n",
+        "\n",
+        "llist.print_list()\n"
+      ]
+    }
+  ]
+}
